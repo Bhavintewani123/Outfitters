@@ -1,6 +1,7 @@
 {
   "name": "outfitters-fashion-store",
   "version": "0.1.0",
+  "homepage": "https://bhavintewani123.github.io/Outfitters",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.2",

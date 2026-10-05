@@ -3483,3 +3483,15 @@ textarea {
     -webkit-text-stroke: 1px rgba(0, 0, 0, 0.35);
   }
 }
+@media (max-width: 900px) {
+  .hero-copy {
+    padding-bottom: 25px;
+  }
+
+  .hero-copy::after {
+    position: static;
+    display: block;
+    margin-top: 8px;      /* pehle 26px tha, ab list ke aur paas */
+    align-self: flex-start;
+  }
+}
