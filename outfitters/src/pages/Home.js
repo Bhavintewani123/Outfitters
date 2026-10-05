@@ -60,7 +60,7 @@ export default function Home() {
         <div className="hero-image">
 
           <img
-            src="/hero.jpg"
+            src={process.env.PUBLIC_URL + "/hero.jpg"}
             alt="Floral fashion campaign"
           />
 

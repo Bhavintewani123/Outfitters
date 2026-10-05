@@ -76,25 +76,25 @@ const womenProductNames = {
 
   Jeans: [
     "Dark Blue Patchwork Slim Fit Jeans",
-  "Bright Blue Straight Leg Jeans",
-  "Medium Blue Wide Leg Drawstring Denim Pants",
-  "Teal High-Waisted Slim Jeans",
-  "Light Blue Skinny Jeans",
-  "Grey Relaxed Cargo Jeans",
-  "Light Blue Heavily Knee-Ripped Wide Leg Jeans",
-  "Light Blue Wide Leg Jeans",
-  "Light Blue Ripped Straight Jeans",
-  "Grey Graphic Print Straight Leg Jeans",
-  "Light Blue Knee-Ripped Jeans",
-  "Medium Blue Cargo Wide Leg Jeans",
-  "Dark Blue Baggy Wide Leg Jeans",
-  "Bright Blue Straight Fit Jeans",
-  "Medium Blue Straight Leg Jeans",
-  "Dark Grey Straight Bootcut Jeans",
-  "Blue Flare Wide Leg Jeans",
-  "Medium Blue Wide Leg Jeans",
-  "Light Blue Ripped Skinny Jeans",
-  "Brown Low-Rise Bootcut Jeans"
+    "Bright Blue Straight Leg Jeans",
+    "Medium Blue Wide Leg Drawstring Denim Pants",
+    "Teal High-Waisted Slim Jeans",
+    "Light Blue Skinny Jeans",
+    "Grey Relaxed Cargo Jeans",
+    "Light Blue Heavily Knee-Ripped Wide Leg Jeans",
+    "Light Blue Wide Leg Jeans",
+    "Light Blue Ripped Straight Jeans",
+    "Grey Graphic Print Straight Leg Jeans",
+    "Light Blue Knee-Ripped Jeans",
+    "Medium Blue Cargo Wide Leg Jeans",
+    "Dark Blue Baggy Wide Leg Jeans",
+    "Bright Blue Straight Fit Jeans",
+    "Medium Blue Straight Leg Jeans",
+    "Dark Grey Straight Bootcut Jeans",
+    "Blue Flare Wide Leg Jeans",
+    "Medium Blue Wide Leg Jeans",
+    "Light Blue Ripped Skinny Jeans",
+    "Brown Low-Rise Bootcut Jeans"
   ],
 
   Pants: [
@@ -555,6 +555,7 @@ const categoryPrices = {
 
 // ============================================================
 // CREATE LOCAL IMAGE PATH
+// PUBLIC_URL = "/Outfitters" on GitHub Pages, "" on localhost
 // ============================================================
 
 function createImage(
@@ -573,7 +574,7 @@ function createImage(
     String(index + 1)
       .padStart(2, "0");
 
-  return `/images/products/${genderFolder}/${folder}/${genderFolder}_${folder}_${number}.jpg`;
+  return `${process.env.PUBLIC_URL}/images/products/${genderFolder}/${folder}/${genderFolder}_${folder}_${number}.jpg`;
 
 }
 

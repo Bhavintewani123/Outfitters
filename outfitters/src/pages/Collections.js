@@ -123,6 +123,7 @@ export default function Collections() {
 
                 <img
                   src={
+                    process.env.PUBLIC_URL +
                     collection.image
                   }
 

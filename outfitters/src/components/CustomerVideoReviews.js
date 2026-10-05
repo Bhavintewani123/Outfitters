@@ -32,7 +32,7 @@ export default function CustomerVideoReviews() {
             key={index}
           >
             <video
-              src={video}
+              src={process.env.PUBLIC_URL + video}
               autoPlay
               muted
               loop
