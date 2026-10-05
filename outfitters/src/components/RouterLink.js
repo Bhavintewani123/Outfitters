@@ -5,14 +5,14 @@ import {
 
 
 // ============================================================
-// GET CURRENT URL
+// GET CURRENT URL (HASH BASED, WORKS ON GITHUB PAGES)
+// "#/shop?gender=men"  ->  "/shop?gender=men"
 // ============================================================
 
 function getCurrentURL() {
 
   return (
-    window.location.pathname +
-    window.location.search
+    window.location.hash.slice(1) || "/"
   );
 
 }
@@ -24,18 +24,7 @@ function getCurrentURL() {
 
 export const navigateTo = (path) => {
 
-  window.history.pushState(
-    {},
-    "",
-    path
-  );
-
-
-  window.dispatchEvent(
-    new PopStateEvent(
-      "popstate"
-    )
-  );
+  window.location.hash = path;
 
 
   // Instant scroll to top
@@ -90,7 +79,7 @@ export function Link({
   return (
 
     <a
-      href={to}
+      href={"#" + to}
       className={className}
       onClick={handleClick}
       {...rest}
@@ -131,12 +120,22 @@ export function usePath() {
 
 
     window.addEventListener(
+      "hashchange",
+      handleNavigation
+    );
+
+    window.addEventListener(
       "popstate",
       handleNavigation
     );
 
 
     return () => {
+
+      window.removeEventListener(
+        "hashchange",
+        handleNavigation
+      );
 
       window.removeEventListener(
         "popstate",

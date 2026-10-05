@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SearchOverlay from "./components/SearchOverlay";
 
-import { usePath } from "./components/RouterLink";
+import { usePath, navigateTo } from "./components/RouterLink";
 
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
@@ -314,27 +314,12 @@ function Content() {
 
         <a
           className="btn btn-dark"
-          href="/"
+          href="#/"
           onClick={e => {
 
             e.preventDefault();
 
-            window.history.pushState(
-              {},
-              "",
-              "/"
-            );
-
-            window.dispatchEvent(
-              new PopStateEvent(
-                "popstate"
-              )
-            );
-
-            window.scrollTo(
-              0,
-              0
-            );
+            navigateTo("/");
 
           }}
         >
