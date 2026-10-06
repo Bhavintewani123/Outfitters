@@ -3498,31 +3498,27 @@ textarea {
 
 
 /* ============================================================
-   FIX: PHONE "DESKTOP SITE" MODE ONLY
-   (touch device + wide layout viewport).
-   Regular phone view and laptop view are NOT affected.
+   FIX: HERO OVERLAP ON ALL WIDE SCREENS (laptop + desktop site)
+   Phone view (900px and below) is not touched.
    ============================================================ */
 
-@media (hover: none) and (pointer: coarse) and (min-width: 901px) {
+@media (min-width: 901px) {
 
-  /* PREMIUM LOOK moves into the normal flow below the trust list,
-     same idea the regular phone view already uses */
-  .hero-copy {
-    padding-bottom: 25px;
-  }
-
+  /* PREMIUM LOOK now sits in the flow: bottom when there is room,
+     pushed down (never overlapping) when the list is taller */
   .hero-copy::after {
     position: static;
     display: block;
-    margin-top: 14px;
     align-self: flex-start;
-    font-size: clamp(26px, 3vw, 40px);
-    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.35);
+    margin-top: auto;
+    padding-top: 28px;
+    margin-left: calc(clamp(14px, 2vw, 40px) - clamp(25px, 7vw, 100px));
+    margin-bottom: calc(-1 * clamp(20px, 3vw, 36px));
+    font-size: clamp(34px, 4.4vw, 90px);
   }
 
-  /* Vertical OUTFITTERS gets smaller so all 10 letters fit */
+  /* Vertical OUTFITTERS follows the window height so all letters fit */
   .hero-image::after {
-    font-size: clamp(30px, 4vw, 44px);
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.85);
+    font-size: clamp(28px, 6vh, 60px);
   }
 }
