@@ -1,13 +1,14 @@
 {
   "name": "outfitters-fashion-store",
   "version": "0.1.0",
-  "homepage": "https://bhavintewani123.github.io/Outfitters",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^13.5.0",
+    "nodemailer": "^10.0.15",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-scripts": "5.0.1",
