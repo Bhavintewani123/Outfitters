@@ -3495,3 +3495,34 @@ textarea {
     align-self: flex-start;
   }
 }
+
+
+/* ============================================================
+   FIX: PHONE "DESKTOP SITE" MODE ONLY
+   (touch device + wide layout viewport).
+   Regular phone view and laptop view are NOT affected.
+   ============================================================ */
+
+@media (hover: none) and (pointer: coarse) and (min-width: 901px) {
+
+  /* PREMIUM LOOK moves into the normal flow below the trust list,
+     same idea the regular phone view already uses */
+  .hero-copy {
+    padding-bottom: 25px;
+  }
+
+  .hero-copy::after {
+    position: static;
+    display: block;
+    margin-top: 14px;
+    align-self: flex-start;
+    font-size: clamp(26px, 3vw, 40px);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Vertical OUTFITTERS gets smaller so all 10 letters fit */
+  .hero-image::after {
+    font-size: clamp(30px, 4vw, 44px);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.85);
+  }
+}
