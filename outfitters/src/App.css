@@ -3540,3 +3540,20 @@ textarea {
     padding: 4px 6px;
   }
 }
+/* ============================================================
+   FIX: vertical OUTFITTERS should always fit inside hero image
+   (works in phone "Desktop site" mode too)
+   ============================================================ */
+
+.hero-image {
+  container-type: size;
+}
+
+@media (min-width: 901px) {
+  .hero-image::after {
+    /* 10 letters, so height / 13 leaves a safe gap on top and bottom */
+    font-size: min(60px, calc(100cqh / 13));
+    letter-spacing: 0;
+    line-height: 1;
+  }
+}
