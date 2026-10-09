@@ -11,7 +11,7 @@ export async function sendOrderEmail(order) {
   const timer = setTimeout(() => controller.abort(), 20000);
 
   try {
-    const res = await fetch(`${API_URL}/api/send-order`, {
+    const res = await fetch(`/api/send-order`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
