@@ -3,6 +3,8 @@ import {
   useShop
 } from "./context/ShopContext";
 
+import { AuthProvider } from "./context/AuthContext";
+
 import AnnouncementBar from "./components/AnnouncementBar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -17,6 +19,8 @@ import ProductDetails from "./pages/ProductDetails";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 import {
   About,
@@ -281,6 +285,28 @@ function Content() {
   }
 
 
+  // LOGIN
+
+  else if (
+    pathname === "/login"
+  ) {
+
+    page = <Login />;
+
+  }
+
+
+  // SIGNUP
+
+  else if (
+    pathname === "/signup"
+  ) {
+
+    page = <Signup />;
+
+  }
+
+
   // PRODUCT
 
   else if (
@@ -361,10 +387,14 @@ function Content() {
 export default function App() {
 
   return (
-    <ShopProvider>
+    <AuthProvider>
 
-      <Content />
+      <ShopProvider>
 
-    </ShopProvider>
+        <Content />
+
+      </ShopProvider>
+
+    </AuthProvider>
   );
 }

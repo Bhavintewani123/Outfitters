@@ -3522,3 +3522,21 @@ textarea {
     font-size: clamp(28px, 6vh, 60px);
   }
 }
+.header-logout {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .header-logout {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+}

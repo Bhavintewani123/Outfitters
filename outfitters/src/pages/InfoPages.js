@@ -1,4 +1,7 @@
-import { Link } from "../components/RouterLink";
+import { useEffect } from "react";
+import { Link, useNavigate } from "../components/RouterLink";
+import { useAuth } from "../context/AuthContext";
+import "./Auth.css";
 
 /* =====================================================
    ABOUT
@@ -99,17 +102,48 @@ export function Contact() {
 ===================================================== */
 
 export function Account() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  // Login nahi hai to login page par bhejo
+  useEffect(() => {
+    if (!user) navigate("/login");
+  }, [user, navigate]);
+
+  if (!user) return null;
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
     <main className="container simple-page">
       <span className="eyebrow">YOUR SPACE</span>
       <h1>My account</h1>
-      <p>
-        Account sign-in can be connected to your preferred authentication
-        service later. For now, continue shopping as a guest.
-      </p>
-      <Link to="/shop" className="btn btn-dark">
-        CONTINUE SHOPPING
-      </Link>
+
+      <div className="account-card">
+        <div className="account-avatar">
+          {user.name.charAt(0).toUpperCase()}
+        </div>
+        <div>
+          <p className="account-name">Hi, {user.name}</p>
+          <p className="account-email">{user.email}</p>
+        </div>
+      </div>
+
+      <div className="account-actions">
+        <Link to="/shop" className="btn btn-dark">
+          CONTINUE SHOPPING
+        </Link>
+        <button
+          type="button"
+          className="account-logout"
+          onClick={handleLogout}
+        >
+          LOGOUT
+        </button>
+      </div>
     </main>
   );
 }

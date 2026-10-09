@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "./RouterLink";
 import Icon from "./Icon";
 import { useShop } from "../context/ShopContext";
+import { useAuth } from "../context/AuthContext";
 
 function Header() {
 
@@ -10,6 +11,8 @@ function Header() {
     wishlist,
     setSearchOpen
   } = useShop();
+
+  const { user } = useAuth();
 
   const navigate = useNavigate();
 
@@ -161,16 +164,18 @@ function Header() {
 
 
           {/* ==================================================
-              ACCOUNT
+              ACCOUNT / LOGIN
           ================================================== */}
 
           <button
             type="button"
-            onClick={() => navigate("/account")}
-            aria-label="Account"
+            onClick={() => navigate(user ? "/account" : "/login")}
+            aria-label={user ? "Account" : "Login"}
+            title={user ? user.name : "Login"}
           >
             <Icon name="user" />
           </button>
+
 
 
           {/* ==================================================
